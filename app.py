@@ -34,18 +34,12 @@ def get_persons():
 
 @app.route('/')
 def hello_world():
-    
 
-    # keyVaultName = 'myKeyVaultForLearning'
-    # KVUri = f"https://{keyVaultName}.vault.azure.net"
+    return "hola"
 
-    # credential = DefaultAzureCredential()
-    # client = SecretClient(vault_url=KVUri, credential=credential)
-
-    # retrieved_secret = client.get_secret('mySecret')
-    #os.getEnv("CATCHPHRASE")
+@app.route('/persons')
+def hello_peeps():
     return get_persons()
 #f'Hello, World! my name is Martin from Azure,{os.getenv("CATCHPHRASE")} '
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000)
-hello_world()
