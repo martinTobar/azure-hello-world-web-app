@@ -8,7 +8,7 @@ import os
 
 app = Flask(__name__)
 
-connection_string = os.environ["AZURE_SQL_CONNECTIONSTRING"]
+connection_string = os.getenv("AZURE_SQL_CONNECTIONSTRING")
 
 def get_conn():
     credential = identity.DefaultAzureCredential(exclude_interactive_browser_credential=True)
@@ -35,7 +35,7 @@ def get_persons():
 @app.route('/')
 def hello_world():
 
-    return "hola"
+    return f'Hello, World! my name is Martin from Azure,{os.getenv("CATCHPHRASE")}'
 
 @app.route('/persons')
 def hello_peeps():
